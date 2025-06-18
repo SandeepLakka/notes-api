@@ -15,6 +15,7 @@ public class NoteService {
     private NoteRepository noteRepository;
 
     public Note createNote(Note note) {
+
         return noteRepository.save(note);
     }
 
@@ -22,7 +23,7 @@ public class NoteService {
         return noteRepository.findAll();
     }
 
-    public boolean deleteNote(String id) {
+    public boolean deleteNote(Long id) {
         if (noteRepository.existsById(id)){
             noteRepository.deleteById(id);
             return true;
@@ -31,7 +32,7 @@ public class NoteService {
         }
     }
 
-    public Optional<Note> getNoteById(String id) {
+    public Optional<Note> getNoteById(Long id) {
         return noteRepository.findById(id);
     }
 

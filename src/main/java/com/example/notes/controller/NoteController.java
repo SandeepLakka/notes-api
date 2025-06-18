@@ -38,7 +38,7 @@ public class NoteController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Note> getNoteById(@PathVariable String id) {
+    public ResponseEntity<Note> getNoteById(@PathVariable("id") Long id) {
         Optional<Note> note = noteService.getNoteById(id);
         return note
                 .map(ResponseEntity::ok)
@@ -46,7 +46,7 @@ public class NoteController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteNote(@PathVariable("id") String id) {
+    public ResponseEntity<Void> deleteNote(@PathVariable("id") Long id) {
         boolean isRemoved = noteService.deleteNote(id);
         if (isRemoved) {
             return ResponseEntity.noContent().build();

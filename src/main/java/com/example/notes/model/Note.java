@@ -1,10 +1,7 @@
 
 package com.example.notes.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -19,9 +16,10 @@ public class Note {
     @Id
     @Column(name = "ID")
     @GeneratedValue(strategy = IDENTITY)
-    private String id;
+    private Long id;
     @Column(name = "TITLE")
     private String title;
     @Column(name = "CONTENT")
     private String content;
+
 }
